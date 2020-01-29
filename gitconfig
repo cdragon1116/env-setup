@@ -1,0 +1,42 @@
+[alias]
+  s = stash
+  sl = stash list
+  sa = stash apply
+  sd = stash drop
+  sp = stash pop
+  rb = rebase
+  rbc = rebase --continue
+  rbi = rebase -i
+  rbis = rebase -i
+  co = checkout
+  cob = checkout -b
+  br = branch
+  ss = status
+  cm = commit
+  cma = commit --amend
+  ; ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -10
+  l = log --pretty=format:'%C(yellow)%h %C(bold blue) %ad | %C(reset) %s %C(bold blue) %d %C(yellow)[%an] (%cr)' --graph --date=short -10
+  hist = log --pretty=format:'%C(yellow)%h %C(bold blue) %ad | %C(reset) %s %C(bold blue) %d %C(yellow)[%an] (%cr)' --graph --date=short -50
+  l20 = log --pretty=format:'%C(yellow)%h %C(bold blue) %ad | %C(reset) %s %C(bold blue) %d %C(yellow)[%an] (%cr)' --graph --date=short -20
+  ; ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+
+[alias]
+  template = /Users/yenjung/.gitmessage.txt
+[user]
+	email = jenny610138@gmail.com
+	name = YenJung Chen
+[commit]
+	template = ~/.gitmessage
+[pager]
+	log = false
+	branch = false
+[core]
+        pager = diff-so-fancy | less --tabs=1,5 -R
+	excludesfile = /Users/yenjung/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
