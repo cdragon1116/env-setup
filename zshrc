@@ -1,11 +1,33 @@
+
 export ZSH="/Users/yenjung/.oh-my-zsh" # Set name of the theme to load --- if set to "random", it will
 
+function virtualenv_info {
+  [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`')'
+}
+
+# ZSH_THEME="agnoster"
 ZSH_THEME="avit"
+# ZSH_THEME="typewritten/typewritten"
+# export TYPEWRITTEN_CURSOR="block"
+# cursor_style_full_block=16
 
 bindkey '^ ' autosuggest-accept
 
 DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
 plugins=(git)
 plugins=(fzf)
@@ -16,10 +38,22 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
 export FZF_BASE="$HOME/.fzf"
 source $ZSH/oh-my-zsh.sh
 
+
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+
+#
+# Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias vimrcconfig="vim ~/.vimrc"
-
-# auto jump
+#
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 # asdf
@@ -29,12 +63,15 @@ alias vimrcconfig="vim ~/.vimrc"
 # for error
 export LC_ALL=en_US.UTF-8
 
+
 # shell integretion
 # source ~/.iterm2_shell_integration.zsh
 source ~/.zsh-interactive-cd.plugin.zsh
 
 
-# FZF setting
+# FZF
+
+# fgst - pick files from `git status -s`
 is_in_git_repo() {
   git rev-parse HEAD > /dev/null 2>&1
 }
@@ -49,6 +86,7 @@ gcob() {
     branch=$(echo "$branches" | fzf --height 40% --ansi --multi --tac --reverse +m) &&
     git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
+
 
 gb() {
   is_in_git_repo &&
@@ -140,12 +178,10 @@ fh() {
   eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
 }
 
-# git alias
 alias gcpb="git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' | pbcopy"
 alias gcm="git commit"
 alias gss="git status"
 alias gsc="git stash clear"
-alias gpu="git push -u origin"
 alias gpl="git pull origin"
 alias grb="git rebase"
 alias grbc="git rebase --continue"
@@ -156,3 +192,15 @@ alias tl="tmux ls"
 alias ta="tmux attach-session -t"
 alias tka="tmux kill-server"
 alias tks="tmux kill-session -t"
+alias gfo="git fetch origin"
+alias grsh="git reset --hard"
+alias hco="hub pr checkout"
+
+grsho() {
+  local b="$(git_current_branch)"
+  git fetch origin ${b}
+  echo "current branch: ${b}"
+  git reset --hard origin/${b}
+  echo "reset to origin/${b}"
+  git log --pretty=format:'%C(yellow)%h %C(bold blue) %ad | %C(reset) %s %C(bold blue) %d %C(yellow)[%an] (%cr)' --graph --date=short -1
+}

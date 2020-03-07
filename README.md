@@ -1,6 +1,11 @@
 #### Install Step
 
     $ cd ~
-    $ git clone git@github.com:cdragon1116/env-setup.git
+    $ mv .vim vim-backup
+    $ git clone git@github.com:cdragon1116/env-setup.git .vim
     $ ln -s .vim/vimrc .vimrc
-    $ ln -s .vim/gvimrc .gvimrc
+
+
+#### Enter vim
+
+:PlugInstall
