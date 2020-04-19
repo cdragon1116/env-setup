@@ -15,7 +15,7 @@ call plug#begin('~/.vim/plugged')
   " git development
   Plug 'tpope/vim-fugitive'
   Plug 'ruanyl/vim-gh-line'
-  Plug 'airblade/vim-gitgutter'
+  " Plug 'airblade/vim-gitgutter'
 
   " style
   Plug 'KabbAmine/yowish.vim'
@@ -37,11 +37,9 @@ call plug#begin('~/.vim/plugged')
 
   " for ruby/rails development
   Plug 'vim-ruby/vim-ruby'
-  Plug 'vim-ruby/vim-ruby'
   Plug 'tpope/vim-rails'
   Plug 'thoughtbot/vim-rspec'
   Plug 'w0rp/ale'
-  "Plug 'dense-analysis/ale'
   Plug 'ngmy/vim-rubocop'
 
   " for react/js development
@@ -85,7 +83,6 @@ set pastetoggle=<F10>
 set go+=a               " Visual selection automatically copied to the clipboard
 
 
-
 "--------------
 "Filetype and Encoding
 "--------------
@@ -124,6 +121,8 @@ let g:indentLine_color_term = 239
 "jumping window on
 autocmd VimEnter * wincmd w
 
+" git hi
+hi GitGutterAdd guibg=red guifg=green
 
 "--------------
 " note
@@ -133,4 +132,33 @@ autocmd VimEnter * wincmd w
 " "*P
 " :read !pbpaste
 " bash$ pbpaste | vim -
+
+
+vnoremap <Leader>hh :call Pphashv()<cr>
+noremap <Leader>hh :call Pphash()<cr>
+
+function! Pphash()
+  execute "set filetype=ruby"
+  " split {} []
+  execute ":%s/[{[]/&\r/g"
+  execute ":%s/[]}]/\r&/g"
+
+  execute ":%s/=>/: /g"
+  " split new line on , and remove blank line
+  execute ":%s/,/,\r/g"
+  execute "g/^$/d"
+  execute ":normal! gg=G"
+endfunction
+
+function! Pphashv()
+  execute "set filetype=ruby"
+  " split {} []
+  execute ":s/[{[]/&\r/g"
+  execute ":s/[]}]/\r&/g"
+
+  execute ":s/=>/: /g"
+  " split new line on , and remove blank line
+  execute ":s/,/,\r/g"
+  execute "g/^$/d"
+endfunction
 

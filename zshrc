@@ -30,12 +30,12 @@ COMPLETION_WAITING_DOTS="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 plugins=(git)
-plugins=(fzf)
+# plugins=(fzf)
 plugins=(zsh-autosuggestions)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
 
-export FZF_BASE="$HOME/.fzf"
+# export FZF_BASE="$HOME/.fzf"
 source $ZSH/oh-my-zsh.sh
 
 
@@ -195,6 +195,8 @@ alias tks="tmux kill-session -t"
 alias gfo="git fetch origin"
 alias grsh="git reset --hard"
 alias hco="hub pr checkout"
+
+alias tx="tmuxinator"
 
 grsho() {
   local b="$(git_current_branch)"

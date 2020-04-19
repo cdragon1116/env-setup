@@ -1,6 +1,6 @@
 " FZF
 " set -gx FZF_DEFAULT_COMMAND  'rg --files --no-ignore-vcs --hidden'
-set -gx FZF_DEFAULT_COMMAND  'ag -g --hidden ""'
+" set -gx FZF_DEFAULT_COMMAND  'ag -g --hidden ""'
 
 command! -bang Colors
   \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
@@ -37,8 +37,8 @@ command! -bang Gbranch call fzf#run({
 
 
 " FZF
-let l:fzf_files_options = '--preview "bat --theme="ansi-dark" --style=numbers,changes --color always {2..-1} | head -'.&lines.'"'
-let g:fzf_buffers_jump = 1
+" let l:fzf_files_options = '--preview "bat --theme="ansi-dark" --style=numbers,changes --color always {2..-1} | head -'.&lines.'"'
+" let g:fzf_buffers_jump = 1
 map <c-u> :Files <Enter>
 map <c-i> :Ag <Enter>
 
