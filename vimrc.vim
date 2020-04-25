@@ -162,3 +162,7 @@ function! Pphashv()
   execute "g/^$/d"
 endfunction
 
+
+set -g pane-active-border-bg default
+set -g pane-active-border-fg colour208
+
