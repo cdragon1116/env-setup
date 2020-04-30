@@ -1,76 +1,26 @@
-
-export ZSH="/Users/yenjung/.oh-my-zsh" # Set name of the theme to load --- if set to "random", it will
-
-function virtualenv_info {
-  [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`')'
-}
-
-# ZSH_THEME="agnoster"
 ZSH_THEME="avit"
-# ZSH_THEME="typewritten/typewritten"
-# export TYPEWRITTEN_CURSOR="block"
-# cursor_style_full_block=16
 
 bindkey '^ ' autosuggest-accept
 
 DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
 plugins=(git)
-# plugins=(fzf)
+plugins=(fzf)
 plugins=(zsh-autosuggestions)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
 
-# export FZF_BASE="$HOME/.fzf"
-source $ZSH/oh-my-zsh.sh
-
-
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-
-#
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias vimrcconfig="vim ~/.vimrc"
-#
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-
-# asdf
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
 
 # for error
 export LC_ALL=en_US.UTF-8
 
 
-# shell integretion
-# source ~/.iterm2_shell_integration.zsh
-source ~/.zsh-interactive-cd.plugin.zsh
-
-
 # FZF
-
+#
 # fgst - pick files from `git status -s`
 is_in_git_repo() {
   git rev-parse HEAD > /dev/null 2>&1
