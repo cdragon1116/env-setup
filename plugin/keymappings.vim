@@ -61,6 +61,11 @@ nnoremap <leader>ct :let @*=expand("%:t")<CR>
 " directory name (/something/src)
 nnoremap <leader>ch :let @*=expand("%:p:h")<CR>
 
+" esc in insert mode
+inoremap jk <esc>
+" esc in command mode
+cnoremap jk <C-C>
+
 "--------------
 " tmux mapping
 "--------------

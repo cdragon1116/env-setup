@@ -132,9 +132,12 @@ alias gcpb="git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' | pb
 alias gcm="git commit"
 alias gss="git status"
 alias gsc="git stash clear"
-alias gpl="git pull origin"
+
+alias gpull="git pull origin"
+alias gpush="git push origin"
 alias grb="git rebase"
 alias grbc="git rebase --continue"
+alias grba="git rebase --"
 alias grbs="git rebase --skip"
 
 alias tn="tmux new -s"
@@ -154,5 +157,6 @@ grsho() {
   echo "current branch: ${b}"
   git reset --hard origin/${b}
   echo "reset to origin/${b}"
-  git log --pretty=format:'%C(yellow)%h %C(bold blue) %ad | %C(reset) %s %C(bold blue) %d %C(yellow)[%an] (%cr)' --graph --date=short -1
+  git log --pretty=format:'%C(yellow)%h %C(bold blue) %ad | %C(reset) %s %C(bold blue) %d %C(yellow)[%an] (%cr)' -1
 }
+

@@ -4,12 +4,12 @@ call plug#begin('~/.vim/plugged')
   " for general purpose development
   Plug 'scrooloose/nerdtree'
   Plug 'terryma/vim-multiple-cursors'
-  Plug 'Yggdroot/indentLine'
+  " Plug 'Yggdroot/indentLine'
   Plug 'tpope/vim-surround'
   Plug 'jiangmiao/auto-pairs'
   Plug 'scrooloose/nerdcommenter'
-  Plug 'MarcWeber/vim-addon-mw-utils'
-  Plug 'tomtom/tlib_vim'
+  " Plug 'MarcWeber/vim-addon-mw-utils'
+  " Plug 'tomtom/tlib_vim'
   Plug 'majutsushi/tagbar'
 
   " git development
@@ -36,11 +36,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'
 
   " for ruby/rails development
-  Plug 'vim-ruby/vim-ruby'
+  " Plug 'vim-ruby/vim-ruby'
   Plug 'tpope/vim-rails'
-  Plug 'thoughtbot/vim-rspec'
+  " Plug 'thoughtbot/vim-rspec'
   Plug 'w0rp/ale'
-  Plug 'ngmy/vim-rubocop'
+  " Plug 'ngmy/vim-rubocop'
 
   " for react/js development
   Plug 'mattn/emmet-vim'
@@ -162,3 +162,9 @@ function! Pphashv()
   execute "g/^$/d"
 endfunction
 
+
+set timeoutlen=1000
+set ttimeoutlen=0
+
+autocmd FileType erb let b:surround_{char2nr('=')} = "<%= \r %>"
+autocmd FileType erb let b:surround_{char2nr('-')} = "<% \r %>"
