@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
   " for general purpose development
   Plug 'scrooloose/nerdtree'
   Plug 'terryma/vim-multiple-cursors'
-  " Plug 'Yggdroot/indentLine'
+  Plug 'Yggdroot/indentLine'
   Plug 'tpope/vim-surround'
   Plug 'jiangmiao/auto-pairs'
   Plug 'scrooloose/nerdcommenter'
