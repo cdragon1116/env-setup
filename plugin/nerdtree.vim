@@ -1,6 +1,7 @@
 " Map F2 to toggle NERDTree
 nnoremap <silent> <F2> :NERDTreeToggle<Enter>
 nnoremap nd :NERDTreeToggle<Enter>
+nnoremap nt :NERDTreeToggle<Enter>
 
 " Looks better :)
 let NERDTreeMinimalUI = 1

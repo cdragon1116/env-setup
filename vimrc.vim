@@ -26,17 +26,18 @@ call plug#begin('~/.vim/plugged')
   Plug 'edkolev/tmuxline.vim'
 
   " snippet and complete
-  Plug 'SirVer/ultisnips'
-  Plug 'ervandew/supertab'
-  Plug 'Valloric/YouCompleteMe'
-  Plug 'honza/vim-snippets'
+  " Plug 'SirVer/ultisnips'
+  " Plug 'ervandew/supertab'
+  " Plug 'Valloric/YouCompleteMe'
+  " Plug 'honza/vim-snippets'
 
   " searching
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
+  Plug 'justinmk/vim-gtfo'
 
   " for ruby/rails development
-  " Plug 'vim-ruby/vim-ruby'
+  Plug 'vim-ruby/vim-ruby'
   Plug 'tpope/vim-rails'
   " Plug 'thoughtbot/vim-rspec'
   Plug 'w0rp/ale'
