@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'Yggdroot/indentLine'
+
   Plug 'tpope/vim-surround'
   Plug 'jiangmiao/auto-pairs'
   Plug 'scrooloose/nerdcommenter'
@@ -15,7 +16,7 @@ call plug#begin('~/.vim/plugged')
   " git development
   Plug 'tpope/vim-fugitive'
   Plug 'ruanyl/vim-gh-line'
-  " Plug 'airblade/vim-gitgutter'
+  Plug 'airblade/vim-gitgutter'
 
   " style
   Plug 'KabbAmine/yowish.vim'
@@ -135,16 +136,13 @@ hi GitGutterAdd guibg=red guifg=green
 " bash$ pbpaste | vim -
 
 
-vnoremap <Leader>hh :call Pphashv()<cr>
-noremap <Leader>hh :call Pphash()<cr>
-
 function! Pphash()
   execute "set filetype=ruby"
   " split {} []
   execute ":%s/[{[]/&\r/g"
   execute ":%s/[]}]/\r&/g"
 
-  execute ":%s/=>/: /g"
+  execute ":%s/\s*=>\s*/: /g"
   " split new line on , and remove blank line
   execute ":%s/,/,\r/g"
   execute "g/^$/d"
@@ -157,12 +155,56 @@ function! Pphashv()
   execute ":s/[{[]/&\r/g"
   execute ":s/[]}]/\r&/g"
 
-  execute ":s/=>/: /g"
+  execute ":s/\s*=>\s*/: /g"
   " split new line on , and remove blank line
   execute ":s/,/,\r/g"
   execute "g/^$/d"
 endfunction
 
+function! ToHash()
+  silent! %s/[{[]/&\r/g
+  silent! %s/[]}]/\r&/g
+  silent! %s/\s*=>\s*/: /g
+  silent! %s/,/,\r/g
+  set filetype=ruby
+  normal! gg=G
+  g/^$/d
+endfunction
+
+function! ToHashSelection()
+  execute "normal! vi)\<Esc>"
+  silent! '<,'>s/[{[]/&\r/g
+  silent! '<,'>s/[]}]/\r&/g
+  silent! '<,'>s/\s*=>\s*/: /g
+  silent! '<,'>s/,/,\r/g
+  set filetype=ruby
+  normal! gg=G
+endfunction
+
+vnoremap <Leader>hh :call ToHashSelection()<cr>
+nnoremap <Leader>hh :call ToHash()<cr>
+vnoremap <Leader>hs :call ToStrSelection()<cr>
+nnoremap <Leader>hs :call ToStr()<cr>
+
+function! ToStr()
+  silent!
+  silent! %s/\([{[]\)\(.\+\)/\1\r\2/g
+  silent! %s/\(.\+\)\([]}]\)/\1\r\2/g
+  silent! %s/"*\(\w\+\)"*:\s*/"\1" => /g
+  silent! %s/,/,\r/g
+  set filetype=ruby
+  normal! gg=G
+endfunction
+
+function! ToStrSelection()
+  execute "normal! vi)\<Esc>"
+  silent! '<,'>s/[{[]/&\r/g
+  silent! '<,'>s/[]}]/\r&/g
+  silent! '<,'>s/"*\(\w\+\)"*:\s*/"\1" => /g
+  silent! '<,'>s/,/,\r/g
+  set filetype=ruby
+  normal! gg=G
+endfunction
 
 set timeoutlen=1000
 set ttimeoutlen=0
