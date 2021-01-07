@@ -211,3 +211,5 @@ set ttimeoutlen=0
 
 autocmd FileType erb let b:surround_{char2nr('=')} = "<%= \r %>"
 autocmd FileType erb let b:surround_{char2nr('-')} = "<% \r %>"
+
+set tags=tags
