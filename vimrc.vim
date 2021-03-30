@@ -167,9 +167,9 @@ function! ToHash()
   silent! %s/[]}]/\r&/g
   silent! %s/\s*=>\s*/: /g
   silent! %s/,/,\r/g
+  silent! g/^\s*$/d
   set filetype=ruby
   normal! gg=G
-  g/^$/d
 endfunction
 
 function! ToHashSelection()
@@ -178,6 +178,7 @@ function! ToHashSelection()
   silent! '<,'>s/[]}]/\r&/g
   silent! '<,'>s/\s*=>\s*/: /g
   silent! '<,'>s/,/,\r/g
+  silent! g/^\s*$/d
   set filetype=ruby
   normal! gg=G
 endfunction
@@ -193,6 +194,7 @@ function! ToStr()
   silent! %s/\(.\+\)\([]}]\)/\1\r\2/g
   silent! %s/"*\(\w\+\)"*:\s*/"\1" => /g
   silent! %s/,/,\r/g
+  silent! g/^\s*$/d
   set filetype=ruby
   normal! gg=G
 endfunction
@@ -203,6 +205,7 @@ function! ToStrSelection()
   silent! '<,'>s/[]}]/\r&/g
   silent! '<,'>s/"*\(\w\+\)"*:\s*/"\1" => /g
   silent! '<,'>s/,/,\r/g
+  silent! g/^\s*$/d
   set filetype=ruby
   normal! gg=G
 endfunction
