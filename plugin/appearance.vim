@@ -42,7 +42,8 @@ syntax on
 try
   set gfn=Monaco:h16
   set background=dark
-  colorscheme yowish
+  colorscheme gruvbox
+"   colorscheme yowish
   highlight EndOfBuffer cterm=NONE ctermfg=bg ctermbg=bg
 catch
 endtry

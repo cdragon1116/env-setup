@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugged')
 
   " style
   Plug 'KabbAmine/yowish.vim'
+  Plug 'morhetz/gruvbox'
   Plug 'itchyny/lightline.vim'
 
   " tmunx

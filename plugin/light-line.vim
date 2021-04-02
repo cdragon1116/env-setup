@@ -2,13 +2,13 @@
 set laststatus=2
 
 let g:lightline = {
-      \ 'colorscheme': 'yowish',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name',
+      \   'gitbranch': 'FugitiveHead',
       \   'filename': 'LightLineFilename',
       \ },
       \ }
