@@ -31,7 +31,6 @@ command! -bang Gbranch call fzf#run({
             \ 'sink': function('s:changebranch')
             \ })
 
-
 " FZF
 map <c-p> :GFiles <Enter>
 " map <c-i> :Ag <Enter>

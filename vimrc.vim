@@ -129,6 +129,9 @@ autocmd VimEnter * wincmd w
 " git hi
 hi GitGutterAdd guibg=red guifg=green
 
+" map leader
+" let mapleader = " "
+
 "--------------
 " note
 "--------------
@@ -146,3 +149,8 @@ autocmd FileType erb let b:surround_{char2nr('=')} = "<%= \r %>"
 autocmd FileType erb let b:surround_{char2nr('-')} = "<% \r %>"
 
 set tags=tags
+set guicursor=i:block
+set autochdir
+
+# change nerdtree root directory
+autocmd BufEnter * if &ft !~ '^nerdtree$' | silent! lcd %:p:h | endif

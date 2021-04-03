@@ -31,9 +31,11 @@ nnoremap L gt
 noremap j gj
 noremap k gk
 
+" move line up and down
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+" disable Q
 nnoremap Q @@
 
 " 換行
