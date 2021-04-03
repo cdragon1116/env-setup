@@ -34,6 +34,6 @@ command! -bang Gbranch call fzf#run({
 
 " FZF
 map <c-p> :GFiles <Enter>
-map <c-i> :Ag <Enter>
+" map <c-i> :Ag <Enter>
 
 nnoremap <leader>q :exe 'Ag!' expand('<cword>')<cr>

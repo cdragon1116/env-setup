@@ -31,6 +31,9 @@ nnoremap L gt
 noremap j gj
 noremap k gk
 
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 nnoremap Q @@
 
 " 換行
