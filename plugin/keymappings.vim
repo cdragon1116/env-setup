@@ -31,6 +31,8 @@ nnoremap L gt
 noremap j gj
 noremap k gk
 
+nnoremap Q @@
+
 " 換行
 noremap <Enter> o<ESC>
 noremap <S-Enter> O<ESC>
