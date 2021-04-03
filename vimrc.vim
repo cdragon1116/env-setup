@@ -85,6 +85,7 @@ set incsearch
 set clipboard+=unnamed  " use the clipboards of vim and win
 set pastetoggle=<F10>
 set go+=a               " Visual selection automatically copied to the clipboard
+set lazyredraw
 
 
 "--------------
@@ -210,6 +211,7 @@ function! ToHashSelection()
   normal! gg=G
 endfunction
 
+nnoremap Q @@
 vnoremap <Leader>hrh :call ToSymbolHashSelection()<cr>
 noremap <Leader>hrh :call ToSymbolHash()<cr>
 vnoremap <Leader>hh :call ToHashSelection()<cr>
