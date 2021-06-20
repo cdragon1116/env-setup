@@ -10,14 +10,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'jiangmiao/auto-pairs'
   " Plug 'scrooloose/nerdcommenter'
   Plug 'preservim/nerdcommenter'
-  " Plug 'MarcWeber/vim-addon-mw-utils'
-  " Plug 'tomtom/tlib_vim'
   Plug 'majutsushi/tagbar'
 
   " git development
   Plug 'tpope/vim-fugitive'
   Plug 'ruanyl/vim-gh-line'
   Plug 'airblade/vim-gitgutter'
+  Plug 'justinmk/vim-gtfo'
 
   " style
   Plug 'KabbAmine/yowish.vim'
@@ -38,14 +37,11 @@ call plug#begin('~/.vim/plugged')
 "   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'justinmk/vim-gtfo'
 
   " for ruby/rails development
   Plug 'vim-ruby/vim-ruby'
   Plug 'tpope/vim-rails'
-  " Plug 'thoughtbot/vim-rspec'
   Plug 'w0rp/ale'
-  " Plug 'ngmy/vim-rubocop'
 
   " for react/js development
   Plug 'mattn/emmet-vim'
