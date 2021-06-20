@@ -58,3 +58,5 @@ set noerrorbells
 set t_vb=
 set tm=500
 
+set timeoutlen=1000
+set ttimeoutlen=0

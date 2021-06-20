@@ -35,7 +35,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'honza/vim-snippets'
 
   " searching
-  Plug '/usr/local/opt/fzf'
+"   Plug '/usr/local/opt/fzf'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'justinmk/vim-gtfo'
 
@@ -86,71 +87,3 @@ set clipboard+=unnamed  " use the clipboards of vim and win
 set pastetoggle=<F10>
 set go+=a               " Visual selection automatically copied to the clipboard
 set lazyredraw
-
-
-"--------------
-"Filetype and Encoding
-"--------------
-
-filetype on
-filetype indent on
-filetype plugin on
-
-" file encoding
-set encoding=utf-8
-scriptencoding utf-8
-
-
-"--------------
-" key mapping
-"--------------
-" .vim/plugin/keymappings.vim
-
-"--------------
-" other settings
-"--------------
-
-" comment add space
-let NERDSpaceDelims=1
-
-"tmux
-let g:airline#extensions#tmuxline#enabled = 1
-let g:tmuxline_powerline_separators = 0
-
-" close tag settings
-let g:closetag_filetypes = 'html,xhtml,phtml,javascript.jsx,eruby'
-
-"indent line
-let g:indentLine_color_term = 239
-
-"jumping window on
-autocmd VimEnter * wincmd w
-
-" git hi
-hi GitGutterAdd guibg=red guifg=green
-
-" map leader
-" let mapleader = " "
-
-"--------------
-" note
-"--------------
-"
-" note
-" "*P
-" :read !pbpaste
-" bash$ pbpaste | vim -
-
-
-set timeoutlen=1000
-set ttimeoutlen=0
-
-autocmd FileType erb let b:surround_{char2nr('=')} = "<%= \r %>"
-autocmd FileType erb let b:surround_{char2nr('-')} = "<% \r %>"
-
-set tags=tags
-set guicursor=i:block
-set autochdir
-
-# change nerdtree root directory
-autocmd BufEnter * if &ft !~ '^nerdtree$' | silent! lcd %:p:h | endif

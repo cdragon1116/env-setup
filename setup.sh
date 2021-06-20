@@ -49,6 +49,8 @@ while true; do
     case $yn in
         [Yy]* )
           echo 'overwrite gitconfig';
+          touch .gitconfig
+          touch .gitmessage
           cp .gitconfig .gitconfig-save;
           cp .gitmessage .gitmessage-save;
           cp .vim/gitmessage .gitmessage;

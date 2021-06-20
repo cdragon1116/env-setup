@@ -23,3 +23,6 @@ autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 nmap ,n :NERDTreeFind<CR>
 " nmap <F2> :NERDTreeToggle<CR>
 
+" comment add space
+let NERDSpaceDelims=1
+
