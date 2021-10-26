@@ -6,6 +6,7 @@
   sp = stash pop
   rb = rebase
   rbc = rebase --continue
+  rbs = rebase --skip
   rbi = rebase -i
   rbis = rebase -i
   co = checkout
