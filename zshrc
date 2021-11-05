@@ -159,6 +159,3 @@ grsho() {
   echo "reset to origin/${b}"
   git log --pretty=format:'%C(yellow)%h %C(bold blue) %ad | %C(reset) %s %C(bold blue) %d %C(yellow)[%an] (%cr)' -1
 }
-
-alias ctags="`brew --prefix`/bin/ctags"
-alias ctags
