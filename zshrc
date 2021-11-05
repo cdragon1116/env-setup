@@ -20,7 +20,7 @@ export LC_ALL=en_US.UTF-8
 
 
 # FZF
-#
+
 # fgst - pick files from `git status -s`
 is_in_git_repo() {
   git rev-parse HEAD > /dev/null 2>&1
@@ -139,14 +139,14 @@ alias grb="git rebase"
 alias grbc="git rebase --continue"
 alias grba="git rebase --"
 alias grbs="git rebase --skip"
+alias gfo="git fetch origin"
+alias grsh="git reset --hard"
 
 alias tn="tmux new -s"
 alias tl="tmux ls"
 alias ta="tmux attach-session -t"
 alias tka="tmux kill-server"
 alias tks="tmux kill-session -t"
-alias gfo="git fetch origin"
-alias grsh="git reset --hard"
 alias hco="hub pr checkout"
 
 alias tx="tmuxinator"
@@ -154,8 +154,8 @@ alias tx="tmuxinator"
 grsho() {
   local b="$(git_current_branch)"
   git fetch origin ${b}
-  echo "current branch: ${b}"
+  echo "[Current Branch] ${b}"
   git reset --hard origin/${b}
-  echo "reset to origin/${b}"
+  echo "[Resetting to] origin/${b}"
   git log --pretty=format:'%C(yellow)%h %C(bold blue) %ad | %C(reset) %s %C(bold blue) %d %C(yellow)[%an] (%cr)' -1
 }
