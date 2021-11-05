@@ -60,3 +60,6 @@ while true; do
         * ) echo "Please answer yes or no.";;
     esac
 done
+
+vim +'PlugInstall --sync' +qa
+python3 ~/.vim/plugged/YouCompleteMe/install.py --all
