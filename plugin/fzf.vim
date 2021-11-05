@@ -34,6 +34,6 @@
 " FZF
 map <c-p> :GFiles <Enter>
 map <c-u> :Files <Enter>
-" map <c-i> :Ag <Enter>
+map <c-i> :Ag <Enter>
 
 " nnoremap <leader>q :exe 'Ag!' expand('<cword>')<cr>

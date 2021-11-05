@@ -38,9 +38,10 @@ set expandtab
 " set t_Co=256  " Number of colors
 set termguicolors
 syntax on
+colorscheme gruvbox
 
 try
-  set gfn=Monaco:h16
+  set gfn=Monaco:h18
   set background=dark
   colorscheme gruvbox
 "   colorscheme yowish
