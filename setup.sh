@@ -47,7 +47,8 @@ brew_install() {
   fi
 }
 
-warn "Please make sure what you are doing"
+warn "This script will append settings in .vimrc/.zshrc/tmux.config"
+warn "Please make sure you know what you are doing."
 while true; do
   read -p "Yes or No (y/n): " yn
     case $yn in
@@ -129,6 +130,8 @@ else
   # brew update
 fi
 
+brew_install zsh-autosuggestions
+
 info 'Run PlugInstall in vim';
 vim +'PlugInstall --sync' +qa
 
@@ -137,6 +140,7 @@ brew_install python
 brew_install go
 brew_install nodejs
 brew_install fzf
+brew_install ag
 
 warn "Do you wish to complie YouCompleteMe(y/n)? "
 while true; do
@@ -167,5 +171,7 @@ while true; do
         * ) info "Please answer yes or no.";;
     esac
 done
+
+info "Please reboot your Iterm."
 
 exit

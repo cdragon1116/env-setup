@@ -1,4 +1,4 @@
-#### Install Step
+#### Mac Install Step
 
     $ cd ~
     $ mv .vim vim-backup
