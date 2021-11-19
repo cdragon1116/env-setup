@@ -35,7 +35,6 @@ set expandtab
 "--------------
 " ColorScheme
 "--------------
-" set t_Co=256  " Number of colors
 set termguicolors
 syntax on
 colorscheme gruvbox

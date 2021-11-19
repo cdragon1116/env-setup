@@ -21,7 +21,6 @@ let NERDTreeCascadeSingleChildDir = 0
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 nmap ,n :NERDTreeFind<CR>
-" nmap <F2> :NERDTreeToggle<CR>
 
 " comment add space
 let NERDSpaceDelims=1
