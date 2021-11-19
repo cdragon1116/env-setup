@@ -38,6 +38,14 @@ function install()
   coloredEcho "[Install] ${arg1}" blue
 }
 
+brew_install() {
+  install "$1"
+  if brew list $1 &>/dev/null; then
+    info "${1} is already installed"
+  else
+    brew install $1 && echo "$1 is installed"
+  fi
+}
 
 warn "Please make sure what you are doing"
 while true; do
@@ -112,33 +120,52 @@ else
 fi
 
 install 'Oh my Zsh';
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+which -s zsh
+if [[ $? != 0 ]] ; then
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  info 'Oh my Zsh Complete';
+else
+  info 'Oh my Zsh already installed';
+  # brew update
+fi
 
 info 'Run PlugInstall in vim';
 vim +'PlugInstall --sync' +qa
 
-install 'cmake python go nodejs fzf';
-brew install cmake python go nodejs fzf
+brew_install cmake
+brew_install python
+brew_install go
+brew_install nodejs
+brew_install fzf
 
-info "Compling YouCompleteMe";
-if [[ `uname -m` == 'arm64' ]];
-then
-  echo "Your are in M1 model";
-  brew install llvm
-#   python3 ~/.vim/plugged/YouCompleteMe/install.py --system-libclang --all
+warn "Do you wish to complie YouCompleteMe(y/n)? "
+while true; do
+  read -p "Yes or No (y/n): " yn
+    case $yn in
+        [Yy]* )
+          if [[ `uname -m` == 'arm64' ]];
+          then
+            echo "Your are in M1 model";
+            brew_install llvm
+            python3 ~/.vim/plugged/YouCompleteMe/install.py --system-libclang --all
 
-  if grep 'ycm_clangd_binary_path' ~/.vimrc
-  then
-    info 'ycm_clangd_binary_path init'
-  else
-    echo "\" For arm64 Macs, we need to use Homebrew's clangd" >> ~/.vimrc
-    echo "let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'" >> ~/.vimrc
-    info 'ycm_clangd_binary_path init'
-  fi
-else
-  info "Your are in Intel model";
-  brew install mono
-  python3 ~/.vim/plugged/YouCompleteMe/install.py --all
-fi
+            if grep 'ycm_clangd_binary_path' ~/.vimrc
+            then
+              info 'ycm_clangd_binary_path init'
+            else
+              echo "\" For arm64 Macs, we need to use Homebrew's clangd" >> ~/.vimrc
+              echo "let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'" >> ~/.vimrc
+              info 'ycm_clangd_binary_path init'
+            fi
+          else
+            info "Your are in Intel model";
+            brew_install mono
+            python3 ~/.vim/plugged/YouCompleteMe/install.py --all
+          fi
+          break;;
+        [Nn]* ) break;;
+        * ) info "Please answer yes or no.";;
+    esac
+done
 
 exit
