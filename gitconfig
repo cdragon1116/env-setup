@@ -23,10 +23,7 @@
 
 
 [alias]
-  template = /Users/yenjung/.gitmessage.txt
-[user]
-	email = jenny610138@gmail.com
-	name = YenJung Chen
+  template = ~/.gitmessage.txt
 [commit]
 	template = ~/.gitmessage
 [pager]
@@ -34,7 +31,7 @@
 	branch = false
 [core]
         pager = diff-so-fancy | less --tabs=1,5 -R
-	excludesfile = /Users/yenjung/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
