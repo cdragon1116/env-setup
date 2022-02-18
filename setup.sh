@@ -141,6 +141,7 @@ brew_install go
 brew_install nodejs
 brew_install fzf
 brew_install ag
+brew_install diff-so-fancy
 
 warn "Do you wish to complie YouCompleteMe(y/n)? "
 while true; do

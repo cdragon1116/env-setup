@@ -34,7 +34,7 @@ gcob() {
 #                 --bind "ctrl-y:execute:$_gitLogLineToHash | xclip"
 # }
 #
-gitl() {
+gl() {
     glNoGraph | fzf --no-sort --reverse --tiebreak=index --no-multi \
             --ansi  \
                 --header "enter to view, alt-y to copy hash" \
@@ -61,8 +61,12 @@ gh() {
     fzf --height 40% --ansi --no-sort --reverse --multi | grep -o '[a-f0-9]\{7,\}'
 }
 
+grbis() {
+  local commit=$(gh)
+  [[ -n "$commit" ]] && git rebase --exec 'git commit --amend --no-edit -n -S' -i "$commit"
+}
 
-gitrbi() {
+grbi() {
   local commit=$(gh)
   [[ -n "$commit" ]] && git rebase -i "$commit"
 }
@@ -72,7 +76,7 @@ gitrs() {
   [[ -n "$commit" ]] && git reset "$commit"
 }
 
-gitco() {
+gco() {
   local commit=$(gh)
   [[ -n "$commit" ]] && git checkout "$commit"
 }

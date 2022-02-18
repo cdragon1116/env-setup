@@ -1,4 +1,4 @@
 " Git
-nnoremap gd :Gvdiff <Enter>
-nnoremap gb :Git blame <Enter>
-nnoremap gr :Gread <Enter>
+nnoremap gdi :Gvdiff <Enter>
+nnoremap gbl :Git blame <Enter>
+nnoremap gre :Gread <Enter>

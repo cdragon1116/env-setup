@@ -34,7 +34,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'honza/vim-snippets'
 
   " searching
-"   Plug '/usr/local/opt/fzf'
+  " Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
@@ -83,3 +83,6 @@ set clipboard+=unnamed  " use the clipboards of vim and win
 set pastetoggle=<F10>
 set go+=a               " Visual selection automatically copied to the clipboard
 set lazyredraw
+
+set rnu
+set guicursor=i:block
