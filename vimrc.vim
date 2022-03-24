@@ -50,6 +50,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'Valloric/MatchTagAlways'
   Plug 'alvan/vim-closetag'
 
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 call plug#end()
 
 "--------------
@@ -86,3 +88,6 @@ set lazyredraw
 
 set rnu
 set guicursor=i:block
+
+au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+
