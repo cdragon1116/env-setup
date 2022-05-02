@@ -89,5 +89,7 @@ set lazyredraw
 set rnu
 set guicursor=i:block
 
-au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+" au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+"
+autocmd BufWritePost * !find ./ -name '.DS_Store' -delete
 
