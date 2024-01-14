@@ -74,6 +74,12 @@ cnoremap jk <C-C>
 
 nnoremap <F5> :call whichpr#open()<CR>
 
+" vertical naviagtion
+nnoremap("<C-f>", "<C-f>zz")
+nnoremap("<C-b>", "<C-b>zz")
+nnoremap("n", "nzz")
+nnoremap("N", "Nzz")
+
 "--------------
 " tmux mapping
 "--------------

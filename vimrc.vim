@@ -28,9 +28,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'edkolev/tmuxline.vim'
 
   " snippet and complete
-  Plug 'SirVer/ultisnips'
+"   Plug 'SirVer/ultisnips'
   Plug 'ervandew/supertab'
-  Plug 'Valloric/YouCompleteMe'
+  " Plug 'Valloric/YouCompleteMe'
   Plug 'honza/vim-snippets'
 
   " searching
@@ -91,5 +91,3 @@ set guicursor=i:block
 
 " au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
 "
-autocmd BufWritePost * !find ./ -name '.DS_Store' -delete
-
