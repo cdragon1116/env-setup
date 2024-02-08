@@ -37,14 +37,13 @@ set expandtab
 "--------------
 set termguicolors
 syntax on
-colorscheme gruvbox
+colorscheme dracula
+set background=dark
 
 try
   set gfn=Monaco:h18
   set background=dark
-  colorscheme gruvbox
-"   colorscheme yowish
-  highlight EndOfBuffer cterm=NONE ctermfg=bg ctermbg=bg
+  colorscheme dracula
 catch
 endtry
 

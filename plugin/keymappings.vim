@@ -14,12 +14,6 @@ inoremap <RIGHT> <NOP>
 noremap [b :bp<Enter>
 noremap ]b :bn<Enter>
 
-" vim-rspec mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
 " auto delete white space when save
 autocmd BufWritePre * %s/\s\+$//e
 nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
@@ -31,13 +25,10 @@ nnoremap L gt
 noremap j gj
 noremap k gk
 
-" vnoremap J :m '>+1<CR>gv=gv
-" vnoremap K :m '<-2<CR>gv=gv
-
 " disable Q
 nnoremap Q @@
 
-" 換行
+" line break
 noremap <Enter> o<ESC>
 noremap <S-Enter> O<ESC>
 
@@ -67,36 +58,10 @@ nnoremap <leader>ct :let @*=expand("%:t")<CR>
 " directory name (/something/src)
 nnoremap <leader>ch :let @*=expand("%:p:h")<CR>
 
-" esc in insert mode
-inoremap jk <esc>
-" esc in command mode
-cnoremap jk <C-C>
-
 nnoremap <F5> :call whichpr#open()<CR>
 
 " vertical naviagtion
-nnoremap("<C-f>", "<C-f>zz")
-nnoremap("<C-b>", "<C-b>zz")
-nnoremap("n", "nzz")
-nnoremap("N", "Nzz")
-
-"--------------
-" tmux mapping
-"--------------
-
-" nnoremap <silent> <c-h> :call TmuxMove('h')<cr>
-" nnoremap <silent> <c-j> :call TmuxMove('j')<cr>
-" nnoremap <silent> <c-k> :call TmuxMove('k')<cr>
-" nnoremap <silent> <c-l> :call TmuxMove('l')<cr>
-
-" function! TmuxMove(direction)
-        " let wnr = winnr()
-        " silent! execute 'wincmd ' . a:direction
-        " " If the winnr is still the same after we moved, it is the last pane
-        " if wnr == winnr()
-                " call system('tmux select-pane -' . tr(a:direction, 'phjkl', 'lLDUR'))
-        " end
-      " endfunction
-      "
-      "
-      "
+nnoremap <C-f> <C-f>zz
+nnoremap <C-b> <C-b>zz
+" nnoremap <C-d> <C-d>zz
+" nnoremap <C-u> <C-u>zz

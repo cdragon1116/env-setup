@@ -8,7 +8,6 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'tpope/vim-surround'
   Plug 'jiangmiao/auto-pairs'
-  " Plug 'scrooloose/nerdcommenter'
   Plug 'preservim/nerdcommenter'
   Plug 'majutsushi/tagbar'
 
@@ -18,36 +17,23 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'justinmk/vim-gtfo'
 
-  " style
-  Plug 'KabbAmine/yowish.vim'
-  Plug 'morhetz/gruvbox'
+  " style and appearence
   Plug 'itchyny/lightline.vim'
-
-  " tmunx
-  Plug 'christoomey/vim-tmux-navigator'
-  Plug 'edkolev/tmuxline.vim'
-
-  " snippet and complete
-"   Plug 'SirVer/ultisnips'
-  Plug 'ervandew/supertab'
-  " Plug 'Valloric/YouCompleteMe'
-  Plug 'honza/vim-snippets'
+  Plug 'dracula/vim', { 'as': 'dracula' }
 
   " searching
-  " Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
   " for ruby/rails development
   Plug 'vim-ruby/vim-ruby'
   Plug 'tpope/vim-rails'
-  Plug 'w0rp/ale'
 
   " for react/js development
   Plug 'mattn/emmet-vim'
   Plug 'pangloss/vim-javascript'
   Plug 'MaxMEllon/vim-jsx-pretty'
-  Plug 'Valloric/MatchTagAlways'
+  " Plug 'Valloric/MatchTagAlways'
   Plug 'alvan/vim-closetag'
 
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -57,8 +43,6 @@ call plug#end()
 "--------------
 " Settings
 "--------------
-" set shell=zsh
-" set shellcmdflag=-ic
 set nocompatible
 set clipboard=unnamed
 set noswapfile
@@ -82,12 +66,8 @@ set incsearch
 
 " copy paste
 set clipboard+=unnamed  " use the clipboards of vim and win
-set pastetoggle=<F10>
 set go+=a               " Visual selection automatically copied to the clipboard
 set lazyredraw
 
 set rnu
 set guicursor=i:block
-
-" au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
-"

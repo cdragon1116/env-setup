@@ -47,30 +47,6 @@ brew_install() {
   fi
 }
 
-warn "This script will append settings in .vimrc/.zshrc/tmux.config"
-warn "Please make sure you know what you are doing."
-while true; do
-  read -p "Yes or No (y/n): " yn
-    case $yn in
-        [Yy]* )
-          echo 'configuring...';
-          break;;
-        [Nn]* ) exit;;
-        * ) info "Please answer yes or no.";;
-    esac
-done
-
-cd
-touch .tmux.config
-if grep 'source ~/.vim/tmux.config' .tmux.config
-then
-  info 'source exists in tmux.config'
-else
-  info 'source not exists in tmux.config'
-  info 'source written in tmux.config!'
-  echo 'source ~/.vim/tmux.config' >> .tmux.config
-fi
-
 touch .vimrc
 if grep 'source ~/.vim/vimrc.vim' .vimrc
 then

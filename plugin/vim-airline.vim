@@ -9,4 +9,3 @@ let g:airline_theme='molokai'
 
 " display buffer number in tab
 let g:airline#extensions#tabline#buffer_idx_mode = 1
-
