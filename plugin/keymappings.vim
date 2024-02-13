@@ -65,3 +65,7 @@ nnoremap <C-f> <C-f>zz
 nnoremap <C-b> <C-b>zz
 " nnoremap <C-d> <C-d>zz
 " nnoremap <C-u> <C-u>zz
+"
+" run prettier
+nnoremap gp :silent %!npx prettier --stdin-filepath %<CR>
+
