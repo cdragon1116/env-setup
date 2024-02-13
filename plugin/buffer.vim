@@ -2,4 +2,4 @@
 nnoremap <Leader>b :buffers<CR>:buffer<Space>
 
 " uses fzf buffer search
-nnoremap <silent> <C-u> :Buffers<CR>
+" nnoremap <silent> <C-u> :Buffers<CR>
