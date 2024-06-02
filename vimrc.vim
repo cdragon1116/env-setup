@@ -71,3 +71,6 @@ set lazyredraw
 
 set rnu
 set guicursor=i:block
+
+let g:go_bin_path = $HOME."/go/bin"
+
