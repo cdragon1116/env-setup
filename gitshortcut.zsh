@@ -34,7 +34,7 @@ gcob() {
 #                 --bind "ctrl-y:execute:$_gitLogLineToHash | xclip"
 # }
 #
-gl() {
+gitl() {
     glNoGraph | fzf --no-sort --reverse --tiebreak=index --no-multi \
             --ansi  \
                 --header "enter to view, alt-y to copy hash" \
@@ -66,20 +66,20 @@ grbis() {
   [[ -n "$commit" ]] && git rebase --exec 'git commit --amend --no-edit -n -S' -i "$commit"
 }
 
-grbi() {
-  local commit=$(gh)
-  [[ -n "$commit" ]] && git rebase -i "$commit"
-}
+# grbi() {
+#   local commit=$(gh)
+#   [[ -n "$commit" ]] && git rebase -i "$commit"
+# }
 
 gitrs() {
   local commit=$(gh)
   [[ -n "$commit" ]] && git reset "$commit"
 }
 
-gco() {
-  local commit=$(gh)
-  [[ -n "$commit" ]] && git checkout "$commit"
-}
+# gco() {
+#   local commit=$(gh)
+#   [[ -n "$commit" ]] && git checkout "$commit"
+# }
 
  # git list stash
 gsl() {
@@ -124,14 +124,12 @@ alias grbs="git rebase --skip"
 alias gfo="git fetch origin"
 alias grsh="git reset --hard"
 
-alias tn="tmux new -s"
-alias tl="tmux ls"
-alias ta="tmux attach-session -t"
-alias tka="tmux kill-server"
-alias tks="tmux kill-session -t"
-alias hco="hub pr checkout"
-
-alias tx="tmuxinator"
+# alias tn="tmux new -s"
+# alias tl="tmux ls"
+# alias ta="tmux attach-session -t"
+# alias tka="tmux kill-server"
+# alias tks="tmux kill-session -t"
+# alias hco="hub pr checkout"
 
 grsho() {
   echo "[Reseting to remote branch]"
@@ -141,4 +139,12 @@ grsho() {
   git reset --hard origin/${b}
   echo "[Resetting to] origin/${b}"
   git log --pretty=format:'%C(yellow)%h %C(bold blue) %ad | %C(reset) %s %C(bold blue) %d %C(yellow)[%an] (%cr)' -1
+}
+
+gitl() {
+    glNoGraph | fzf --no-sort --reverse --tiebreak=index --no-multi \
+            --ansi  \
+                --header "enter to view, alt-y to copy hash" \
+                --bind "enter:execute:$_viewGitLogLine   | less -R" \
+                --bind "ctrl-y:execute:$_gitLogLineToHash | xclip"
 }
