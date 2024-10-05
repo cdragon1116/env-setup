@@ -99,7 +99,7 @@ fi
 install 'Oh my Zsh';
 which -s zsh
 if [[ $? != 0 ]] ; then
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   info 'Oh my Zsh Complete';
 else
   info 'Oh my Zsh already installed';
@@ -114,10 +114,11 @@ vim +'PlugInstall --sync' +qa
 brew_install cmake
 brew_install python
 brew_install go
-brew_install nodejs
 brew_install fzf
 brew_install ag
 brew_install diff-so-fancy
+brew_install autojump
+brew_install nodejs
 
 warn "Do you wish to complie YouCompleteMe(y/n)? "
 while true; do
