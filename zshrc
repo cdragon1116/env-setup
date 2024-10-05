@@ -34,4 +34,6 @@ alias run_ctag="ctags -R *"
 # for error
 export LC_ALL=en_US.UTF-8
 
+export EDITOR="/opt/homebrew/bin/vim"
+
 source ~/.vim/gitshortcut.zsh

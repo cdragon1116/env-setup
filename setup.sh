@@ -96,6 +96,10 @@ else
   # brew update
 fi
 
+# install vim
+install "Brew Vim"
+brew install vim && brew link vim --force
+
 install 'Oh my Zsh';
 which -s zsh
 if [[ $? != 0 ]] ; then
