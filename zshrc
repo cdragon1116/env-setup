@@ -6,14 +6,15 @@ DISABLE_LS_COLORS="true"
 COMPLETION_WAITING_DOTS="true"
 
 # ==== fundamentals ====
-plugins=(git)
+# plugins=(git)
+
+plugins=(zsh-autosuggestions)
 
 # oh my zsh with auto suggestion
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
-plugins=(zsh-autosuggestions)
 
 export PATH=/opt/homebrew/bin:$PATH
 
