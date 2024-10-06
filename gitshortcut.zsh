@@ -141,8 +141,8 @@ grsho() {
   git log --pretty=format:'%C(yellow)%h %C(bold blue) %ad | %C(reset) %s %C(bold blue) %d %C(yellow)[%an] (%cr)' -1
 }
 
-gitl() {
-    glNoGraph | fzf --no-sort --reverse --tiebreak=index --no-multi \
+gl() {
+    glNoGraph | fzf --height 40% --no-sort --reverse --tiebreak=index --no-multi \
             --ansi  \
                 --header "enter to view, alt-y to copy hash" \
                 --bind "enter:execute:$_viewGitLogLine   | less -R" \

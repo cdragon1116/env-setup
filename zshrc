@@ -36,4 +36,8 @@ export LC_ALL=en_US.UTF-8
 
 export EDITOR="/opt/homebrew/bin/vim"
 
+
+export TERM=xterm-256color
+
+source ~/.vim/zsh_alias/kube.zsh
 source ~/.vim/gitshortcut.zsh
