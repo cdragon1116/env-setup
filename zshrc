@@ -41,3 +41,4 @@ export TERM=xterm-256color
 
 source ~/.vim/zsh_alias/kube.zsh
 source ~/.vim/gitshortcut.zsh
+source ~/.vim/zsh_alias/fzf_shortcut.zsh

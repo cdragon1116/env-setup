@@ -43,6 +43,8 @@ call plug#end()
 "--------------
 " Settings
 "--------------
+let mapleader =" "
+
 set nocompatible
 set clipboard=unnamed
 set noswapfile

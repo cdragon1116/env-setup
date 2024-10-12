@@ -55,29 +55,29 @@ gitl() {
 # }
 
 #  # git commit sha
-gh() {
+ghash() {
   is_in_git_repo &&
     git log --date=short --color=always --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --graph |
     fzf --height 40% --ansi --no-sort --reverse --multi | grep -o '[a-f0-9]\{7,\}'
 }
 
 grbis() {
-  local commit=$(gh)
+  local commit=$(ghash)
   [[ -n "$commit" ]] && git rebase --exec 'git commit --amend --no-edit -n -S' -i "$commit"
 }
 
 # grbi() {
-#   local commit=$(gh)
+#   local commit=$(ghash)
 #   [[ -n "$commit" ]] && git rebase -i "$commit"
 # }
 
 gitrs() {
-  local commit=$(gh)
+  local commit=$(ghash)
   [[ -n "$commit" ]] && git reset "$commit"
 }
 
 # gco() {
-#   local commit=$(gh)
+#   local commit=$(ghash)
 #   [[ -n "$commit" ]] && git checkout "$commit"
 # }
 
