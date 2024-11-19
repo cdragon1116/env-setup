@@ -24,7 +24,7 @@ plugins=(autojump)
 [ -f $(brew --prefix)/etc/profile.d/autojump.sh ] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 # fzf
-plugins=(fzf)
+# plugins=(fzf)
 
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
